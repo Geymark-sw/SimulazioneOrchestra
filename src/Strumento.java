@@ -1,0 +1,99 @@
+
+public abstract class Strumento {
+	private static int ultimoID = 0;
+	private int id;
+	private String nome;
+	private float estensione;
+	private TipoStrumento tipo;
+	
+	
+	
+	public Strumento(String nome, float estensione, TipoStrumento tipo) {
+		super();
+		this.id = ultimoID;
+		ultimoID ++;
+		this.nome = nome;
+		this.estensione = estensione;
+		this.tipo = tipo;
+	}
+
+	
+
+	public static int getUltimoID() {
+		return ultimoID;
+	}
+
+
+
+	public static void setUltimoID(int ultimoID) {
+		Strumento.ultimoID = ultimoID;
+	}
+
+
+
+	public int getId() {
+		return id;
+	}
+
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+
+	public String getNome() {
+		return nome;
+	}
+
+
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+
+
+	public float getEstensione() {
+		return estensione;
+	}
+
+
+
+	public void setEstensione(float estensione) {
+		this.estensione = estensione;
+	}
+
+
+
+	public TipoStrumento getTipo() {
+		return tipo;
+	}
+
+
+
+	public void setTipo(TipoStrumento tipo) {
+		this.tipo = tipo;
+	}
+
+
+
+	public abstract void suona();
+
+
+
+	@Override
+	public String toString() {
+		return "Strumento [id=" + id + ", nome=" + nome + ", estensione=" + estensione + ", tipo=" + tipo + "]";
+	}
+
+
+	
+	
+	
+
+
+	
+	
+}
