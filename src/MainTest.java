@@ -2,7 +2,13 @@
 public class MainTest {
 	public static void main(String[] args) {
 		
-
+		testAggiungi();
+		testCercaId();
+		testTravaso();
+		testEliminaId();
+		testAccorda();
+		testSuona();
+		testStampa();
 	}
 
 	public static void testAggiungi() {
