@@ -1,3 +1,11 @@
+package it.its.gestioneorchestra.avvio;
+
+import it.its.gestioneorchestra.astratto.Strumento;
+import it.its.gestioneorchestra.concreto.Chitarra;
+import it.its.gestioneorchestra.concreto.Maracas;
+import it.its.gestioneorchestra.concreto.Orchestra;
+import it.its.gestioneorchestra.concreto.Tamburo;
+import it.its.gestioneorchestra.enumeratori.TipoStrumento;
 
 public class MainTest {
 	public static void main(String[] args) {

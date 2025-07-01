@@ -1,3 +1,4 @@
+package it.its.gestioneorchestra.astratto;
 
 public interface Accordabile {
 	

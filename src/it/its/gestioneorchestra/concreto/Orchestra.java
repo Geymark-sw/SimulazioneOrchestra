@@ -1,3 +1,8 @@
+package it.its.gestioneorchestra.concreto;
+
+import it.its.gestioneorchestra.astratto.Accordabile;
+import it.its.gestioneorchestra.astratto.Strumento;
+
 public class Orchestra {
 	
 	private Strumento[] strumenti;
@@ -96,6 +101,8 @@ public class Orchestra {
 					return mario;
 				}
 			}
+		} catch (java.lang.NullPointerException e) {
+			System.out.println("Non è presente nessun oggetto da cancellare con questo ID");
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -110,8 +117,8 @@ public class Orchestra {
 					return strumenti[i];
 				}
 			}
-		} catch (Exception e) {
-			System.out.println(e);
+		} catch (java.lang.NullPointerException e) {
+			System.out.println("Non è presente nessun oggetto con questo ID");
 		}
 		return null;
 	}

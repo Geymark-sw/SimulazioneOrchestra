@@ -1,3 +1,8 @@
+package it.its.gestioneorchestra.concreto;
+
+import it.its.gestioneorchestra.astratto.Accordabile;
+import it.its.gestioneorchestra.astratto.Strumento;
+import it.its.gestioneorchestra.enumeratori.TipoStrumento;
 
 public class Chitarra extends Strumento implements Accordabile {
 

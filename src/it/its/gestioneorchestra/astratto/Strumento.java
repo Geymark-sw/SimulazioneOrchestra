@@ -1,3 +1,7 @@
+package it.its.gestioneorchestra.astratto;
+
+import it.its.gestioneorchestra.enumeratori.TipoStrumento;
+import it.its.gestioneorchestra.exceptions.NegativeValueException;
 
 public abstract class Strumento {
 	private static int ultimoID = 0;
@@ -9,12 +13,15 @@ public abstract class Strumento {
 	
 	
 	public Strumento(String nome, float estensione, TipoStrumento tipo) {
-		super();
+		
+		
 		this.id = ultimoID;
 		ultimoID ++;
 		this.nome = nome;
 		this.estensione = estensione;
 		this.tipo = tipo;
+		
+		
 	}
 
 	
