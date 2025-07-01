@@ -10,7 +10,9 @@ import it.its.gestioneorchestra.concreto.Tamburo;
 import it.its.gestioneorchestra.enumeratori.TipoStrumento;
 import it.its.gestioneorchestra.exceptions.NegativeValueException;
 
+
 public class Main {
+	
 
 	public static void main(String[] args) {
 
@@ -34,114 +36,9 @@ public class Main {
 				// primo switch per far selezionare all'utente quale operazione vuole eseguire
 				switch (comando) {
 				// aggiungi strumento all'orchestra
-				case 1: {
-
-					System.out.println("Inserisci il numero dell'estensione in ottave dello strumento: ");
-					int estensione = 0;
-					//ciclo per forzare l'utente ad inserire un valore accetato
-					while (true) {
-						//verifica se il valore dell'estensione inserito è positivo, quindi accettato
-						try {
-							estensione = Integer.parseInt(input.nextLine());
-							if (estensione < 0) {
-								throw new NegativeValueException(estensione);
-							}
-							break;
-						// altrimenti viene sollevato un eccezione
-						} catch (NegativeValueException e) {
-							System.out.println(e.getMessage());
-							System.out.println("Inserisci un numero strettamente positivo");
-						} catch (java.lang.NumberFormatException e) {
-							System.out.println("Comando non riconosciuto. Inserisci un numero valido");
-						}
-					}
-
-					System.out.println("Inserisci il nome dello strumento: ");
-					String nomeStrumento = input.nextLine();
-					System.out.println(
-							"Inserisci il tipo dello strumento:\n1. Corda\n2. Percussione\n3. Fiato\n4. Tastiera\n5. Elettronica");
-					int comandoTipo = 0;
-					TipoStrumento categoria = null;
-					boolean numeroInRange = false;
-					//ciclo per forzare l'utente ad inserire un valore accetato
-					while (!numeroInRange) {
-						//verifica se il valore del tipo inserito è un intero quindi accettato
-						try {
-							comandoTipo = Integer.parseInt(input.nextLine());
-
-							// secondo switch per categoria dello strumento
-							switch (comandoTipo) {
-							case 1:
-								categoria = TipoStrumento.corda;
-								numeroInRange = true;
-								break;
-
-							case 2:
-								categoria = TipoStrumento.percussione;
-								numeroInRange = true;
-								break;
-
-							case 3:
-								categoria = TipoStrumento.fiato;
-								numeroInRange = true;
-								break;
-
-							case 4:
-								categoria = TipoStrumento.tastiera;
-								numeroInRange = true;
-								break;
-
-							case 5:
-								categoria = TipoStrumento.elettronica;
-								numeroInRange = true;
-								break;
-							default:
-								System.out.println("Errore: inserisci un valore corretto");
-
-							}
-
-						} catch (java.lang.NumberFormatException e) {
-							System.out.println("Comando non riconosciuto. Inserisci un numero valido");
-						}
-					}
-
-					System.out.println("Che strumento vuoi creare?\n1. Tamburo\n2. Chitarra\n3. Maracas");
-					int comandoStrumento = 0;
-					numeroInRange = false;
-					Strumento strumento = null;
-					//ciclo per forzare l'utente ad inserire un valore accetato
-					while (!numeroInRange) {
-						// switch per capire quale classe effettiva di strumento istanziare
-						try {
-							comandoStrumento = Integer.parseInt(input.nextLine());
-							switch (comandoStrumento) {
-								case 1:
-									strumento = new Tamburo(nomeStrumento, estensione, categoria);
-									numeroInRange = true;
-									break;
-								case 2:
-									strumento = new Chitarra(nomeStrumento, estensione, categoria);
-									numeroInRange = true;
-									break;
-								case 3:
-									strumento = new Maracas(nomeStrumento, estensione, categoria);
-									numeroInRange = true;
-									break;
-	
-								default:
-									System.out
-											.println("Comando non riconosciuto. Inserire uno dei comandi a disposizione.");
-								}
-						} catch (Exception e) {
-							System.out.println(e);
-						}
-					}//solo nel caso in cui lo strumento sia correttamente istanziato viene aggiunto all'orchestra
-					if (strumento != null) {
-						orchestra1.aggiungiStrumento(strumento);
-						System.out.println(strumento);
-					}
+				case 1: 
+					aggiungiStrumento();
 					break;
-				}
 				// ricerca dello strumento per id
 				case 2: {
 					System.out.println("Inserisci l'id dello strumento da cercare");
@@ -220,4 +117,116 @@ public class Main {
 
 		}
 	}
+	
+	public static void aggiungiStrumento() {
+		Orchestra orchestra1 = new Orchestra("Mario");
+		Scanner input = new Scanner(System.in);
+		System.out.println("Inserisci il numero dell'estensione in ottave dello strumento: ");
+		int estensione = 0;
+		//ciclo per forzare l'utente ad inserire un valore accetato
+		while (true) {
+			//verifica se il valore dell'estensione inserito è positivo, quindi accettato
+			try {
+				estensione = Integer.parseInt(input.nextLine());
+				if (estensione < 0) {
+					throw new NegativeValueException(estensione);
+				}
+				break;
+			// altrimenti viene sollevato un eccezione
+			} catch (NegativeValueException e) {
+				System.out.println(e.getMessage());
+				System.out.println("Inserisci un numero strettamente positivo");
+			} catch (java.lang.NumberFormatException e) {
+				System.out.println("Comando non riconosciuto. Inserisci un numero valido");
+			}
+		}
+
+		System.out.println("Inserisci il nome dello strumento: ");
+		String nomeStrumento = input.nextLine();
+		System.out.println(
+				"Inserisci il tipo dello strumento:\n1. Corda\n2. Percussione\n3. Fiato\n4. Tastiera\n5. Elettronica");
+		int comandoTipo = 0;
+		TipoStrumento categoria = null;
+		boolean numeroInRange = false;
+		//ciclo per forzare l'utente ad inserire un valore accetato
+		while (!numeroInRange) {
+			//verifica se il valore del tipo inserito è un intero quindi accettato
+			try {
+				comandoTipo = Integer.parseInt(input.nextLine());
+
+				// secondo switch per categoria dello strumento
+				switch (comandoTipo) {
+				case 1:
+					categoria = TipoStrumento.corda;
+					numeroInRange = true;
+					break;
+
+				case 2:
+					categoria = TipoStrumento.percussione;
+					numeroInRange = true;
+					break;
+
+				case 3:
+					categoria = TipoStrumento.fiato;
+					numeroInRange = true;
+					break;
+
+				case 4:
+					categoria = TipoStrumento.tastiera;
+					numeroInRange = true;
+					break;
+
+				case 5:
+					categoria = TipoStrumento.elettronica;
+					numeroInRange = true;
+					break;
+				default:
+					System.out.println("Errore: inserisci un valore corretto");
+
+				}
+
+			} catch (java.lang.NumberFormatException e) {
+				System.out.println("Comando non riconosciuto. Inserisci un numero valido");
+			}
+		}
+
+		System.out.println("Che strumento vuoi creare?\n1. Tamburo\n2. Chitarra\n3. Maracas");
+		int comandoStrumento = 0;
+		numeroInRange = false;
+		Strumento strumento = null;
+		//ciclo per forzare l'utente ad inserire un valore accetato
+		while (!numeroInRange) {
+			// switch per capire quale classe effettiva di strumento istanziare
+			try {
+				comandoStrumento = Integer.parseInt(input.nextLine());
+				switch (comandoStrumento) {
+					case 1:
+						strumento = new Tamburo(nomeStrumento, estensione, categoria);
+						numeroInRange = true;
+						break;
+					case 2:
+						strumento = new Chitarra(nomeStrumento, estensione, categoria);
+						numeroInRange = true;
+						break;
+					case 3:
+						strumento = new Maracas(nomeStrumento, estensione, categoria);
+						numeroInRange = true;
+						break;
+
+					default:
+						System.out
+								.println("Comando non riconosciuto. Inserire uno dei comandi a disposizione.");
+					}
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+		}//solo nel caso in cui lo strumento sia correttamente istanziato viene aggiunto all'orchestra
+		if (strumento != null) {
+			orchestra1.aggiungiStrumento(strumento);
+			System.out.println(strumento);
+		}
+		
+	}
+	
 }
+
