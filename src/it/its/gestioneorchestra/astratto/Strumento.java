@@ -92,7 +92,8 @@ public abstract class Strumento {
 
 	@Override
 	public String toString() {
-		return "Strumento [id=" + id + ", nome=" + nome + ", estensione=" + estensione + ", tipo=" + tipo + "]";
+		String nomeTipoEffettivo = this.getClass().getName();
+		return nomeTipoEffettivo.substring(nomeTipoEffettivo.lastIndexOf(".")+1) + " [id=" + id + ", nome=" + nome + ", estensione=" + estensione + ", tipo=" + tipo + "]\n";
 	}
 
 
