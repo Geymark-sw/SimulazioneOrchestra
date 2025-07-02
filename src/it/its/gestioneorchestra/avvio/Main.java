@@ -162,7 +162,7 @@ public class Main {
 		return categoria;
 	}
 	
-	public static Strumento creaStrumento(String nomeStrumento, float numeroOttave, TipoStrumento categoria) {
+	public static Strumento creaStrumento(String nomeStrumento, float numeroOttave) {
 		System.out.println("Che strumento vuoi creare?\n1. Tamburo\n2. Chitarra\n3. Maracas");
 		int comandoStrumento = 0;
 		boolean numeroInRange = false;
@@ -174,15 +174,15 @@ public class Main {
 				comandoStrumento = Integer.parseInt(input.nextLine());
 				switch (comandoStrumento) {
 					case 1:
-						strumento = new Tamburo(nomeStrumento, numeroOttave, categoria);
+						strumento = new Tamburo(nomeStrumento, numeroOttave);
 						numeroInRange = true;
 						break;
 					case 2:
-						strumento = new Chitarra(nomeStrumento, numeroOttave, categoria);
+						strumento = new Chitarra(nomeStrumento, numeroOttave);
 						numeroInRange = true;
 						break;
 					case 3:
-						strumento = new Maracas(nomeStrumento, numeroOttave, categoria);
+						strumento = new Maracas(nomeStrumento, numeroOttave);
 						numeroInRange = true;
 						break;
 
@@ -203,9 +203,9 @@ public class Main {
 	public static void aggiungiStrumento(Orchestra orchestra) {
 		
 		float numeroOttave = calcolaOttave();
-		TipoStrumento categoria = calcolaTipoStrumento();
+		//TipoStrumento categoria = calcolaTipoStrumento();
 		String nomeStrumento = calcolaNomeStrumento();
-		Strumento strumento = creaStrumento(nomeStrumento, numeroOttave, categoria);
+		Strumento strumento = creaStrumento(nomeStrumento, numeroOttave);
 		//solo nel caso in cui lo strumento sia correttamente istanziato viene aggiunto all'orchestra
 		if (strumento != null) {
 			orchestra.aggiungiStrumento(strumento);

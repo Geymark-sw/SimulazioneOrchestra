@@ -6,8 +6,8 @@ import it.its.gestioneorchestra.enumeratori.TipoStrumento;
 
 public class Chitarra extends Strumento implements Accordabile {
 
-	public Chitarra(String nome, float estensione, TipoStrumento tipo) {
-		super(nome, estensione, tipo);
+	public Chitarra(String nome, float estensione) {
+		super(nome, estensione, TipoStrumento.corda);
 		// TODO Auto-generated constructor stub
 	}
 

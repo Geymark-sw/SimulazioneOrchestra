@@ -6,8 +6,8 @@ import it.its.gestioneorchestra.enumeratori.TipoStrumento;
 public class Maracas extends Strumento {
 	
 
-	public Maracas(String nome, float estensione, TipoStrumento tipo) {
-		super(nome, estensione, tipo);
+	public Maracas(String nome, float estensione) {
+		super(nome, estensione, TipoStrumento.percussione);
 		// TODO Auto-generated constructor stub
 	}
 

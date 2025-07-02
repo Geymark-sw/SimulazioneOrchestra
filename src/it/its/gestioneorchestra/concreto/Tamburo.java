@@ -7,8 +7,9 @@ import it.its.gestioneorchestra.enumeratori.TipoStrumento;
 public class Tamburo extends Strumento implements Accordabile{
 	
 	
-	public Tamburo(String nome, float estensione, TipoStrumento tipo) {
-		super(nome, estensione, tipo);
+	
+	public Tamburo(String nome, float estensione) {
+		super(nome, estensione, TipoStrumento.percussione);
 		
 	}
 
